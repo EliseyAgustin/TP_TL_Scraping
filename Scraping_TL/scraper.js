@@ -1,46 +1,49 @@
-const puppeteer = require('puppeteer');
-const XLSX = require('xlsx');
+const puppeteer = require('puppeteer')
+const XLSX = require('xlsx')
 
-async function scrapeJavaScriptReferences() {
+async function scrapeTIOBERankings() {
   const browser = await puppeteer.launch({
     headless: "new",
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
-  const page = await browser.newPage();
+  const page = await browser.newPage()
   
   try {
-    //JavaScript en MDN
-    await page.goto('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference', { waitUntil: 'networkidle0' });
+    // Pagina de TIOBE
+    await page.goto('https://www.tiobe.com/tiobe-index/', { waitUntil: 'networkidle0' })
 
-    //Extraer informacion de referencias de JavaScript
-    const references = await page.evaluate(() => {
-      const items = document.querySelectorAll('#sidebar-quicklinks a');
-      return Array.from(items).map(item => {
+    // Extraccion de ratings de lenguajes de programacion
+    const rankings = await page.evaluate(() => {
+      const rows = document.querySelectorAll('table.table-top20 tbody tr')
+      return Array.from(rows).slice(0, 10).map(row => {
+        const columns = row.querySelectorAll('td')
         return {
-          title: item.textContent.trim(),
-          url: new URL(item.href, window.location.origin).href
+          rank: columns[0].textContent.trim(),
+          language: columns[4].textContent.trim(),
+          rating: columns[5].textContent.trim()
         };
       });
     });
 
     await browser.close();
 
-    //Crear un libro de trabajo de Excel
+    // Crear libro de trabajo en Excel
     const workbook = XLSX.utils.book_new();
-    const worksheet = XLSX.utils.json_to_sheet(references);
+    const worksheet = XLSX.utils.json_to_sheet(rankings)
 
-    //Añadir la hoja al libro
-    XLSX.utils.book_append_sheet(workbook, worksheet, "JavaScript References");
+    // Añade la hoja al Excel
+    XLSX.utils.book_append_sheet(workbook, worksheet, "TIOBE Rankings")
 
-    //Generar Excel
-    XLSX.writeFile(workbook, 'javascript_references.xlsx');
+    // Generar archivo Excel
+    XLSX.writeFile(workbook, 'tiobe_rankings_2024.xlsx')
 
-    console.log('Datos guardados en javascript_references.xlsx');
-    console.log('Referencias encontradas:', references.length);
+    console.log('Datos guardados en tiobe_rankings_2024.xlsx')
+    console.log('Lenguajes encontrados:', rankings.length);
+    console.log('Top 10 lenguajes:', rankings.map(r => r.language).join(', '))
   } catch (error) {
     console.error('Error durante el scraping:', error);
-    await browser.close();
+    await browser.close()
   }
 }
 
-scrapeJavaScriptReferences();
+scrapeTIOBERankings();
