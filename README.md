@@ -17,8 +17,8 @@ El script utiliza Puppeteer para navegar y extraer datos de la p√°gina web del √
 2. Navega al directorio del proyecto.
 3. Instala las dependencias necesarias:
 
-    ```bash
-    npm install puppeteer xlsx
+    ```
+     npm install puppeteer xlsx
     ```
 
 ## Uso
