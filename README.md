@@ -43,6 +43,8 @@ El script principal `scraper.js` contiene las siguientes partes clave:
 
 ## Análisis y utilidad
 
+Una empresa de software necesita decidir qué lenguajes de programación adoptar para los próximos proyectos. La empresa ha estado usando tecnologías que fueron populares hace algunos años, pero quieres asegurarte de que el equipo esté preparado para enfrentar las tendencias actuales del mercado. Con este script de scraping del índice TIOBE, se puede obtener información actualizada de los lenguajes más populares y analizar cómo han cambiado en el tiempo.
+
 Este script de web scraping del índice TIOBE es útil por varias razones:
 
 1. **Monitoreo de tendencias**: Permite seguir las tendencias en la popularidad de los lenguajes de programación a lo largo del tiempo.
