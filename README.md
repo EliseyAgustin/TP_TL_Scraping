@@ -38,7 +38,9 @@ Una empresa de software puede tomar decisiones informadas sobre qué lenguajes d
 
 ## Puntos importantes:
 1- Identificacion de tendencias: Permite a las empresas reconocer que lenguajes estan en alza y cuales están perdiendo popularidad, ayudandoles a mantenerse competitivas.
+
 2- Optimizacion de recursos: Facilita la planificacion de recursos, enfocandose en la capacitacion de lenguajes que estaran en alta demanda, maximizando el retorno de inversión en formación.
+
 3- Alineacion con el mercado: Adoptar lenguajes populares mejora la capacidad de contratacion de desarrolladores y asegura que el software este alineado con las tendencias del mercado.
 
 Este proceso facilita la toma de decisiones estrategicas, asegurando que los recursos de la empresa se alineen con las tendencias actuales de la industria de programacion.
