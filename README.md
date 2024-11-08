@@ -1,48 +1,43 @@
-# Proyecto de Web Scraping: Ranking de Lenguajes de Programación
+# Proyecto de Web Scraping de Rankings de Lenguajes de Programación
 
-Este proyecto consiste en un script en Node.js que realiza scraping de tres sitios web diferentes para obtener el ranking de los lenguajes de programación más populares en el mercado. El script navega por las páginas, extrae la información relevante y genera un archivo Excel que organiza estos datos en hojas de cálculo separadas para cada fuente de datos.
+Este proyecto utiliza `Puppeteer` para automatizar el navegador y extraer datos de varias páginas web sobre los lenguajes de programacion más populares en el año. Los datos se consolidan en un archivo de Excel usando `XLSX`, con cada sitio web representado en una hoja separada.
 
-## Descripción
+## Estructura del Codigo
 
-El script utiliza la biblioteca Puppeteer para automatizar la navegación y extracción de datos de las páginas web de TIOBE, Tecsify y Statistics Times. Una vez recopilada la información, utiliza la biblioteca `xlsx` para almacenar los datos en un archivo Excel llamado `ranking_lenguajes.xlsx`, lo que permite un análisis más sencillo de los rankings en cada una de las fuentes.
+El código realiza las siguientes operaciones:
 
-## Requisitos previos
+1. **Inicializacion**: Se inicia un navegador sin interfaz gráfica (headless) mediante `Puppeteer` para navegar de forma automatizada.
+2. **Scraping de páginas web**: 
+   - **TIOBE**: Extrae el ranking de los lenguajes de programación de [TIOBE Index](https://www.tiobe.com/tiobe-index/).
+   - **Tecsify**: Extrae la lista de lenguajes desde [Tecsify](https://tecsify.com/blog/top-lenguajes-2024/).
+   - **StaticTimes**: Extrae datos adicionales como tendencia de los lenguajes desde [Statistics Times](https://statisticstimes.com/tech/top-computer-languages.php).
+3. **Creacion de archivo Excel**: Los datos extraídos se organizan en hojas separadas (una por cada fuente) y se guardan en un archivo Excel (`ranking_lenguajes.xlsx`).
+4. **Cierre de navegador**: Se cierra el navegador tras finalizar la extraccion y generacion del archivo.
 
-- Node.js
-- npm (gestor de paquetes de Node.js)
+### Requisitos previos
 
-## Instalación
+Para ejecutar este codigo, es necesario instalar las siguientes dependencias:
 
-1. Clona este repositorio o descarga el script.
-2. Navega al directorio del proyecto.
-3. Instala las dependencias necesarias ejecutando:
+```bash
+npm install puppeteer xlsx
+```
 
-    ```bash
-    npm install puppeteer xlsx
-    ```
+### Ejecucion del Script
 
-## Uso
+Para ejecutar el script, utiliza el siguiente comando en la terminal:
 
-Para ejecutar el script y obtener el archivo Excel con los rankings de lenguajes de programación, usa el siguiente comando en la terminal:
+```bash
+node nombre_del_archivo.js
+```
 
-    ```bash
-    node scraper.js
-    ```
+El archivo Excel (`ranking_lenguajes.xlsx`) se generara en el directorio donde se ejecuta el script, conteniendo una hoja para cada fuente de datos con su respectivo ranking de lenguajes de programacion.
 
-Al finalizar, el script generará un archivo Excel llamado `ranking_lenguajes.xlsx` en el mismo directorio.
+## Escenario de Uso: Departamento de Recursos Humanos de una Empresa de Tecnologia
 
-## Estructura del código
+Una empresa de tecnología está buscando mejorar su proceso de contratación de desarrolladores y necesita saber cuáles son los lenguajes de programación más populares y en demanda actualmente. El equipo de Recursos Humanos podria usar este script para:
 
-El script principal `scraper.js` contiene las siguientes partes clave:
+1. **Identificar tendencias en los lenguajes de programación**: Al analizar los datos de multiples fuentes, el equipo puede identificar qué lenguajes estan en crecimiento o declive.
+2. **Planificar necesidades de contratacion**: Con esta información, la empresa puede decidir qué habilidades son prioritarias para futuras contrataciones, orientando su búsqueda hacia lenguajes con mayor tendencia de crecimiento o popularidad.
+3. **Formación y desarrollo**: Los datos pueden usarse para diseñar programas de capacitacion interna, asegurando que los desarrolladores actuales aprendan o se actualicen en los lenguajes de programación más relevantes.
 
-1. **Configuración de Puppeteer**: Inicializa un navegador en modo headless.
-2. **Navegación y scraping de datos**: 
-   - **TIOBE**: Extrae posición, lenguaje y porcentaje de popularidad de la tabla principal.
-   - **Tecsify**: Extrae posición, lenguaje y porcentaje de una tabla en un artículo específico.
-   - **Statistics Times**: Extrae posición, lenguaje, porcentaje y tendencia de popularidad.
-3. **Procesamiento de datos**: Organiza los datos extraídos en un formato JSON.
-4. **Generación del archivo Excel**: Utiliza `xlsx` para crear y guardar un archivo con una hoja de cálculo separada para cada fuente de datos.
-
-## Análisis y utilidad
-
-Este proyecto es ideal para quienes desean analizar y comparar las tendencias de lenguajes de programación utilizando múltiples fuentes de datos. Una empresa de tecnología podría usar estos datos para identificar los lenguajes más demandados y tomar decisiones informadas sobre el uso de tecnologías en sus proyectos. Este enfoque permite un análisis integral y actualizado del mercado de lenguajes de programación.
+Este proceso facilita la toma de decisiones estrategicas, asegurando que los recursos de la empresa se alineen con las tendencias actuales de la industria de programacion.
