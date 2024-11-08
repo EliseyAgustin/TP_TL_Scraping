@@ -1,4 +1,4 @@
-# Proyecto de Web Scraping de Rankings de Lenguajes de Programación
+# Proyecto de Web Scraping de Rankings de Lenguajes de Programacion
 
 Este proyecto utiliza `Puppeteer` para automatizar el navegador y extraer datos de varias páginas web sobre los lenguajes de programacion más populares en el año. Los datos se consolidan en un archivo de Excel usando `XLSX`, con cada sitio web representado en una hoja separada.
 
@@ -34,10 +34,11 @@ El archivo Excel (`ranking_lenguajes.xlsx`) se generara en el directorio donde s
 
 ## Escenario de Uso: Departamento de Recursos Humanos de una Empresa de Tecnologia
 
-Una empresa de tecnología está buscando mejorar su proceso de contratación de desarrolladores y necesita saber cuáles son los lenguajes de programación más populares y en demanda actualmente. El equipo de Recursos Humanos podria usar este script para:
+Una empresa de software puede tomar decisiones informadas sobre qué lenguajes de programacion adoptar en sus futuros proyectos, asegurandose de seguir las tendencias actuales del mercado. Esto no solo les permite mantenerse actualizados con las tecnologias emergentes, sino que también garantiza que sus desarrolladores esten trabajando con herramientas que tienen una comunidad activa y un soporte robusto.
 
-1. **Identificar tendencias en los lenguajes de programación**: Al analizar los datos de multiples fuentes, el equipo puede identificar qué lenguajes estan en crecimiento o declive.
-2. **Planificar necesidades de contratacion**: Con esta información, la empresa puede decidir qué habilidades son prioritarias para futuras contrataciones, orientando su búsqueda hacia lenguajes con mayor tendencia de crecimiento o popularidad.
-3. **Formación y desarrollo**: Los datos pueden usarse para diseñar programas de capacitacion interna, asegurando que los desarrolladores actuales aprendan o se actualicen en los lenguajes de programación más relevantes.
+## Puntos importantes:
+1- Identificacion de tendencias: Permite a las empresas reconocer que lenguajes estan en alza y cuales están perdiendo popularidad, ayudandoles a mantenerse competitivas.
+2- Optimizacion de recursos: Facilita la planificacion de recursos, enfocandose en la capacitacion de lenguajes que estaran en alta demanda, maximizando el retorno de inversión en formación.
+3- Alineacion con el mercado: Adoptar lenguajes populares mejora la capacidad de contratacion de desarrolladores y asegura que el software este alineado con las tendencias del mercado.
 
 Este proceso facilita la toma de decisiones estrategicas, asegurando que los recursos de la empresa se alineen con las tendencias actuales de la industria de programacion.
